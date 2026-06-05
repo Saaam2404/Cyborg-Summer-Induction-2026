@@ -2,6 +2,7 @@
 
 The robot model is defined for the `mini_bot.urdf.xacro` file.
 
+```xml
 <?xml version="1.0" ?>
 <!-- 
 *****************************************************************************************
@@ -174,3 +175,4 @@ The robot model is defined for the `mini_bot.urdf.xacro` file.
     </joint>
 
 </robot>
+```
