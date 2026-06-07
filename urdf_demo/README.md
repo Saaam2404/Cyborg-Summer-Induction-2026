@@ -173,12 +173,18 @@ The robot model is defined for the `mini_bot.urdf.xacro` file.
         <axis xyz="0.0 1.0 0.0"/>
         <limit effort="5" velocity="5" />
     </joint>
+<!--
+plugins
+-->
+
 
 </robot>
 ```
 ## PLUGIN
 
 ```xml
+<!-- after defining the robot description add the following under robot tag only-->
+<gazebo>
 <plugin
     filename="libignition-gazebo-diff-drive-system.so"
     name="ignition::gazebo::systems::DiffDrive">
@@ -194,6 +200,7 @@ The robot model is defined for the `mini_bot.urdf.xacro` file.
     <topic>cmd_vel</topic>
 
 </plugin>
+</gazebo>
 ```
 
 ## SDF or world File
