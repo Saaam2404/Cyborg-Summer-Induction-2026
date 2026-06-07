@@ -176,3 +176,115 @@ The robot model is defined for the `mini_bot.urdf.xacro` file.
 
 </robot>
 ```
+## PLUGIN
+
+```xml
+<plugin
+    filename="libignition-gazebo-diff-drive-system.so"
+    name="ignition::gazebo::systems::DiffDrive">
+
+    <left_joint>Left_wheel_joint</left_joint>
+    <right_joint>Right_wheel_joint</right_joint>
+
+    <wheel_separation>1.19</wheel_separation> 
+    <wheel_radius>0.14</wheel_radius>
+
+    <odom_publish_frequency>1</odom_publish_frequency>
+
+    <topic>cmd_vel</topic>
+
+</plugin>
+```
+
+## SDF or world File
+
+```xml
+
+<?xml version="1.0" ?>
+<sdf version="1.8">
+
+  <world name="diff_drive_world">
+
+    <!-- Physics -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- Essential Gazebo systems -->
+    <plugin
+      filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+
+    <plugin
+      filename="libignition-gazebo-user-commands-system.so"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+
+    <plugin
+      filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- Sun -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ground Plane -->
+    <model name="ground_plane">
+      <static>true</static>
+
+      <link name="link">
+
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.8 0.8 0.8 1</specular>
+          </material>
+        </visual>
+
+      </link>
+    </model>
+
+    <!-- Robot -->
+
+    <include>
+      <uri>model://mini_bot</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+
+  </world>
+
+</sdf>
+```
