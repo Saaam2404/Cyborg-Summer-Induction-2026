@@ -21,16 +21,6 @@ The reference package demonstrates how to configure:
 
 You are expected to integrate **ROS 2 Control** into **your own line-following robot** developed in the previous task. Reusing the robot model, URDF, or package provided here for the submission is **not allowed**.
 
-The only purpose of this directory is to help you understand:
-
-* How to configure ROS 2 Control plugins.
-* How to configure different controllers.
-* How to write the controller YAML file.
-* How to integrate the Gazebo ROS 2 Control plugin.
-* How to configure the ROS–Gazebo bridge.
-* How to set up the launch file.
-* How to load and switch controllers at runtime.
-
 ---
 
 ## Commonly Used ROS 2 Controllers
