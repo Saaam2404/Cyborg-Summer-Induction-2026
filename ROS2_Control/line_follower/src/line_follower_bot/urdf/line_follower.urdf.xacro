@@ -244,7 +244,7 @@
     <child link="imu_link"/>
     <origin xyz="0 0 0.055"/>
   </joint>
-
+  <!-- ROS2 Control Block ; defines the hardware -->
   <ros2_control name="GazeboSystem" type="system">
 
   <hardware>
@@ -264,7 +264,7 @@
   </joint>
 
 </ros2_control>
-
+<!-- ROS2 Control PLugin -->
 <gazebo>
  <plugin filename="libign_ros2_control-system.so" name="ign_ros2_control::IgnitionROS2ControlPlugin">
     <parameters>${controllers_file}</parameters>
