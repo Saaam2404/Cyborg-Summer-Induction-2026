@@ -20,7 +20,6 @@ The reference package demonstrates how to configure:
 **Do not use this package directly for the mini task.**
 
 You are expected to integrate **ROS 2 Control** into **your own line-following robot** developed in the previous task. Reusing the robot model, URDF, or package provided here for the submission is **not allowed**.
-
 ---
 
 ## Commonly Used ROS 2 Controllers
