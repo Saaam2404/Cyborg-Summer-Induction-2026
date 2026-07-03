@@ -2,11 +2,6 @@
 
 import math
 
-WHEEL_RADIUS = 0.14
-
-L = 0.68
-
-
 def forward_kinematics(omega_left, omega_right, omega_rear):
 
     #write your implementation here
